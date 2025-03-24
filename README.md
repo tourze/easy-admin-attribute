@@ -1,1 +1,1 @@
-# easy-admin-attribute
+# EasyAdminBundle Attribute Extend
