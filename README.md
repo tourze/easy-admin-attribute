@@ -2,9 +2,9 @@
 
 [English](README.md) | [中文](README.zh-CN.md)
 
-[![Latest Version](https://img.shields.io/packagist/v/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/php-monorepo/easy-admin-attribute)
-[![Quality Score](https://img.shields.io/scrutinizer/g/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-monorepo/easy-admin-attribute)
-[![Total Downloads](https://img.shields.io/packagist/dt/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/php-monorepo/easy-admin-attribute)
+[![Latest Version](https://img.shields.io/packagist/v/tourze/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/tourze/easy-admin-attribute)
+[![Quality Score](https://img.shields.io/scrutinizer/g/tourze/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/tourze/easy-admin-attribute)
+[![Total Downloads](https://img.shields.io/packagist/dt/tourze/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/tourze/easy-admin-attribute)
 
 A PHP attribute extension for EasyAdmin Bundle that simplifies the configuration of admin interfaces using PHP 8 attributes.
 
@@ -21,7 +21,7 @@ A PHP attribute extension for EasyAdmin Bundle that simplifies the configuration
 You can install the package via composer:
 
 ```bash
-composer require php-monorepo/easy-admin-attribute
+composer require tourze/easy-admin-attribute
 ```
 
 ## Quick Start

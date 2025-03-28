@@ -2,9 +2,9 @@
 
 [English](README.md) | [中文](README.zh-CN.md)
 
-[![Latest Version](https://img.shields.io/packagist/v/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/php-monorepo/easy-admin-attribute)
-[![Quality Score](https://img.shields.io/scrutinizer/g/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-monorepo/easy-admin-attribute)
-[![Total Downloads](https://img.shields.io/packagist/dt/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/php-monorepo/easy-admin-attribute)
+[![Latest Version](https://img.shields.io/packagist/v/tourze/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/tourze/easy-admin-attribute)
+[![Quality Score](https://img.shields.io/scrutinizer/g/tourze/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/tourze/easy-admin-attribute)
+[![Total Downloads](https://img.shields.io/packagist/dt/tourze/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/tourze/easy-admin-attribute)
 
 一个用于 EasyAdmin Bundle 的 PHP 属性扩展，通过 PHP 8 属性简化管理界面的配置。
 
@@ -21,7 +21,7 @@
 通过 composer 安装:
 
 ```bash
-composer require php-monorepo/easy-admin-attribute
+composer require tourze/easy-admin-attribute
 ```
 
 ## 快速开始
