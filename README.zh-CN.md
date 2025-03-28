@@ -1,4 +1,4 @@
-# EasyAdminBundle Attribute Extend
+# EasyAdminBundle 属性扩展
 
 [English](README.md) | [中文](README.zh-CN.md)
 
@@ -6,25 +6,25 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-monorepo/easy-admin-attribute)
 [![Total Downloads](https://img.shields.io/packagist/dt/php-monorepo/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/php-monorepo/easy-admin-attribute)
 
-A PHP attribute extension for EasyAdmin Bundle that simplifies the configuration of admin interfaces using PHP 8 attributes.
+一个用于 EasyAdmin Bundle 的 PHP 属性扩展，通过 PHP 8 属性简化管理界面的配置。
 
-## Features
+## 功能特性
 
-- Configure EasyAdmin entities using PHP 8 attributes
-- Simplified field configuration with attribute syntax
-- Support for all EasyAdmin field types
-- Auto-discovery of entity configurations
-- Type-safe configuration with IDE support
+- 使用 PHP 8 属性配置 EasyAdmin 实体
+- 使用属性语法简化字段配置
+- 支持所有 EasyAdmin 字段类型
+- 自动发现实体配置
+- IDE 支持的类型安全配置
 
-## Installation
+## 安装
 
-You can install the package via composer:
+通过 composer 安装:
 
 ```bash
 composer require php-monorepo/easy-admin-attribute
 ```
 
-## Quick Start
+## 快速开始
 
 ```php
 <?php
@@ -35,7 +35,7 @@ use PhpMonorepo\EasyAdminAttribute\Attribute\AsEntity;
 #[AsEntity]
 class Product
 {
-    #[AsField(type: 'text', label: 'Product Name')]
+    #[AsField(type: 'text', label: '产品名称')]
     private string $name;
 
     #[AsField(type: 'money', currency: 'USD')]
@@ -43,14 +43,14 @@ class Product
 }
 ```
 
-## Documentation
+## 文档
 
-For detailed documentation, please check our [Documentation](docs/index.md).
+详细文档请查看 [文档中心](docs/index.md)。
 
-## Contributing
+## 贡献
 
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+请查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解详情。
 
-## License
+## 开源协议
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+本项目基于 MIT 协议开源。详细信息请查看 [License 文件](LICENSE.md)。
