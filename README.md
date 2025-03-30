@@ -6,7 +6,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/tourze/easy-admin-attribute.svg?style=flat-square)](https://scrutinizer-ci.com/g/tourze/easy-admin-attribute)
 [![Total Downloads](https://img.shields.io/packagist/dt/tourze/easy-admin-attribute.svg?style=flat-square)](https://packagist.org/packages/tourze/easy-admin-attribute)
 
-A PHP attribute extension for EasyAdmin Bundle that provides a comprehensive set of attributes to configure admin interfaces using PHP 8 attributes.
+A PHP attribute extension for EasyAdmin Bundle that provides a comprehensive set of attributes to configure admin interfaces using PHP 8 attributes. This package simplifies EasyAdmin configuration by leveraging PHP 8's attribute system to create clean, type-safe admin interfaces.
 
 ## Features
 
@@ -18,11 +18,13 @@ A PHP attribute extension for EasyAdmin Bundle that provides a comprehensive set
 - Automatic column formatting for common types (FileSize, Boolean, Images)
 - Support for soft delete operations
 - Flexible display conditions and sorting options
+- Permission-based access control system
 
 ## Requirements
 
 - PHP 8.1 or higher
 - EasyAdmin Bundle 4.x
+- chrisullyott/php-filesize: ^4.2
 
 ## Installation
 
@@ -33,6 +35,8 @@ composer require tourze/easy-admin-attribute
 ```
 
 ## Quick Start
+
+### Basic Entity Configuration
 
 ```php
 <?php
@@ -60,6 +64,22 @@ class Product
 }
 ```
 
+### Using Permissions
+
+```php
+<?php
+
+use Tourze\EasyAdmin\Attribute\Permission\AsPermission;
+use Tourze\EasyAdmin\Attribute\Action\Listable;
+
+#[AsPermission(name: 'product', title: 'Product Management')]
+#[Listable(showTotal: true)]
+class Product
+{
+    // Entity properties
+}
+```
+
 ## Available Attributes
 
 ### Action Attributes
@@ -75,6 +95,7 @@ class Product
 - `SelectField` - Create select fields with entity relations
 - `RichTextField` - Rich text editor integration
 - `ImagePickerField` - Image upload and selection
+- `ImportField` - Configure import field mappings
 
 ### Column Attributes
 
@@ -84,11 +105,68 @@ class Product
 - `FileSizeColumn` - Automatic file size formatting
 - `PictureColumn` - Image display configuration
 - `BoolColumn` - Boolean value formatting
+- `CopyColumn` - Column copying configuration
 
 ### Filter Attributes
 
 - `Filterable` - Add filtering capabilities
 - `Keyword` - Enable keyword search on fields
+
+### Permission Attributes
+
+- `AsPermission` - Configure permission-based access control
+
+## Configuration
+
+### Listable Configuration Options
+
+```php
+#[Listable(
+    showPagination: true,
+    actionWidth: 120,
+    scrollX: 'max-content',
+    showTotal: true,
+    totalTitleColumn: 'name',
+    sortColumn: ['created_at' => 'DESC']
+)]
+```
+
+### FormField Configuration Options
+
+```php
+#[FormField(
+    required: true,
+    span: 12,
+    label: 'Custom Label',
+    placeholder: 'Enter value here'
+)]
+```
+
+## Advanced Usage
+
+### Custom Filtering
+
+```php
+<?php
+
+use Tourze\EasyAdmin\Attribute\Filter\Filterable;
+use Tourze\EasyAdmin\Attribute\Filter\Keyword;
+
+#[Filterable]
+class Product
+{
+    #[Keyword]
+    private string $name;
+
+    // Other properties
+}
+```
+
+## Common Issues and Solutions
+
+- If attributes aren't applied correctly, make sure your PHP version is 8.1 or higher
+- For form validation issues, check that all required fields have the `required` parameter set
+- Permission issues may occur if the `AsPermission` attribute isn't configured properly
 
 ## Contributing
 
@@ -96,4 +174,4 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
