@@ -1,4 +1,4 @@
-name: PHPStan Check
+name: Static Analysis
 
 on:
   push:
@@ -34,3 +34,6 @@ jobs:
 
       - name: Run PHPStan
         run: composer run-script phpstan
+
+      - name: ComposerRequireChecker
+        uses: docker://webfactory/composer-require-checker:4.5.0
