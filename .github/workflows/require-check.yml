@@ -1,0 +1,11 @@
+# .github/workflows/check.yml
+on: [push, pull_request]
+name: Composer Require Check
+jobs:
+  composer-require-checker:
+    name: ComposerRequireChecker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: ComposerRequireChecker
+        uses: docker://ghcr.io/webfactory/composer-require-checker:4.5.0
