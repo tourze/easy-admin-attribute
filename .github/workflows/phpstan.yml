@@ -1,4 +1,4 @@
-name: Composer Require Check
+name: PHPStan Check
 
 on:
   push:
@@ -32,5 +32,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: ComposerRequireChecker
-        uses: docker://webfactory/composer-require-checker:4.5.0
+      - name: Run PHPStan
+        run: composer run-script phpstan
