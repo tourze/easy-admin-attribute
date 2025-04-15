@@ -4,6 +4,7 @@ namespace Tourze\EasyAdmin\Attribute\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Tourze\EasyAdmin\Attribute\Action\Deletable;
+use Tourze\EasyAdmin\Attribute\Action\Exportable;
 use Tourze\EasyAdmin\Attribute\Action\Listable;
 use Tourze\EasyAdmin\Attribute\Column\ListColumn;
 use Tourze\EasyAdmin\Attribute\Field\FormField;
@@ -24,10 +25,11 @@ class IntegrationTest extends TestCase
         $classAttributes = $this->getClassAttributes(SampleEntity::class);
 
         // 验证实体类上的属性
-        $this->assertCount(3, $classAttributes);
+        $this->assertCount(4, $classAttributes);
         $this->assertInstanceOf(Listable::class, $classAttributes[0]);
         $this->assertInstanceOf(Deletable::class, $classAttributes[1]);
-        $this->assertInstanceOf(AsPermission::class, $classAttributes[2]);
+        $this->assertInstanceOf(Exportable::class, $classAttributes[2]);
+        $this->assertInstanceOf(AsPermission::class, $classAttributes[3]);
 
         // 验证 Listable 属性的属性值
         $this->assertTrue($classAttributes[0]->showPagination);
@@ -36,6 +38,11 @@ class IntegrationTest extends TestCase
         // 验证 Deletable 属性的属性值
         $this->assertTrue($classAttributes[1]->softDelete);
         $this->assertEquals('deleted_at', $classAttributes[1]->deleteColumn);
+
+        // 验证 Exportable 属性的属性值
+        $this->assertEquals('export-excel-by-exceljs', $classAttributes[2]->type);
+        $this->assertEquals('导出列表数据', $classAttributes[2]->label);
+        $this->assertEquals('sample-data', $classAttributes[2]->fileName);
 
         // 获取并测试实体属性上的属性
         // 这里我们使用反射来获取属性信息，因为属性可能是私有的
@@ -81,6 +88,7 @@ class IntegrationTest extends TestCase
  */
 #[Listable(showPagination: true, showTotal: true)]
 #[Deletable(softDelete: true, deleteColumn: 'deleted_at')]
+#[Exportable(fileName: 'sample-data')]
 #[AsPermission(name: 'sample', title: '示例管理')]
 class SampleEntity
 {
