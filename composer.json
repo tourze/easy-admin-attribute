@@ -4,8 +4,7 @@
   "license": "MIT",
   "require": {
     "php": "^8.1",
-    "chrisullyott/php-filesize": "^4.2",
-    "easycorp/easyadmin-bundle": "^4"
+    "chrisullyott/php-filesize": "^4.2"
   },
   "require-dev": {
     "phpstan/phpstan": "^2.1",
