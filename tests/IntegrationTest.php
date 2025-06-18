@@ -6,9 +6,6 @@ use PHPUnit\Framework\TestCase;
 use Tourze\EasyAdmin\Attribute\Action\Deletable;
 use Tourze\EasyAdmin\Attribute\Action\Exportable;
 use Tourze\EasyAdmin\Attribute\Action\Listable;
-use Tourze\EasyAdmin\Attribute\Column\ListColumn;
-use Tourze\EasyAdmin\Attribute\Field\FormField;
-use Tourze\EasyAdmin\Attribute\Filter\Keyword;
 use Tourze\EasyAdmin\Attribute\Permission\AsPermission;
 
 /**
@@ -92,18 +89,12 @@ class IntegrationTest extends TestCase
 #[AsPermission(name: 'sample', title: '示例管理')]
 class SampleEntity
 {
-    #[ListColumn(title: '名称', sorter: true)]
-    #[FormField(required: true)]
     private string $name;
 
-    #[ListColumn(title: '价格', columnType: 'number')]
-    #[FormField(span: 12)]
     private float $price;
 
-    #[FormField(span: 24)]
     private string $description;
 
-    #[Keyword]
     private string $searchField;
 
     // Getters and setters would be here in a real entity

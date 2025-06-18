@@ -48,16 +48,10 @@ use Tourze\EasyAdmin\Attribute\Action\Deletable;
 #[Deletable(softDelete: true)]
 class Product
 {
-    #[ListColumn(title: '产品名称', sorter: true)]
-    #[FormField(required: true)]
     private string $name;
 
-    #[ListColumn(title: '价格', columnType: 'money')]
-    #[FormField(span: 12)]
     private float $price;
 
-    #[ListColumn(title: '图片')]
-    #[FormField(allowRemote: true)]
     private string $image;
 }
 ```
@@ -153,7 +147,6 @@ use Tourze\EasyAdmin\Attribute\Filter\Keyword;
 #[Filterable]
 class Product
 {
-    #[Keyword]
     private string $name;
     
     // 其他属性
