@@ -18,14 +18,7 @@ class FileSizeColumnTest extends TestCase
         $fileSizeMock->method('asAuto')->willReturn($expected);
 
         // 创建一个匿名类继承 FileSizeColumn 并覆盖 format 方法，使用我们的模拟对象
-        $fileSizeColumnMock = new class($fileSizeMock) extends FileSizeColumn {
-            private $fileSize;
-
-            public function __construct($fileSize)
-            {
-                $this->fileSize = $fileSize;
-            }
-
+        $fileSizeColumnMock = new class extends FileSizeColumn {
             public static function format(mixed $value): string
             {
                 // 静态方法中我们无法直接使用 $this->fileSize，所以这里使用一个更简单的方法

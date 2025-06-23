@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 use Tourze\EasyAdmin\Attribute\Action\Deletable;
 use Tourze\EasyAdmin\Attribute\Action\Exportable;
 use Tourze\EasyAdmin\Attribute\Action\Listable;
+use Tourze\EasyAdmin\Attribute\Column\ListColumn;
+use Tourze\EasyAdmin\Attribute\Field\FormField;
 use Tourze\EasyAdmin\Attribute\Permission\AsPermission;
 
 /**
@@ -89,13 +91,48 @@ class IntegrationTest extends TestCase
 #[AsPermission(name: 'sample', title: '示例管理')]
 class SampleEntity
 {
+    #[ListColumn(title: '名称')]
+    #[FormField(title: '名称')]
     private string $name;
 
+    #[ListColumn(title: '价格')]
+    #[FormField(title: '价格')]
     private float $price;
 
+    #[FormField(title: '描述')]
     private string $description;
 
     private string $searchField;
 
-    // Getters and setters would be here in a real entity
+    public function __construct(
+        string $name = '',
+        float $price = 0.0,
+        string $description = '',
+        string $searchField = ''
+    ) {
+        $this->name = $name;
+        $this->price = $price;
+        $this->description = $description;
+        $this->searchField = $searchField;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getSearchField(): string
+    {
+        return $this->searchField;
+    }
 }
